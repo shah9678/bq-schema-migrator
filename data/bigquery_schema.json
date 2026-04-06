@@ -1,0 +1,76 @@
+{
+  "customers": {
+    "table_name": "customers",
+    "columns": [
+      {"name": "id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "created_at", "type": "TIMESTAMP", "mode": "REQUIRED"},
+      {"name": "modified_at", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "deleted_at", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "name", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "email", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "tier", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "is_active", "type": "BOOLEAN", "mode": "REQUIRED"},
+      {"name": "company_name", "type": "STRING", "mode": "NULLABLE"},
+      {"name": "phone_number", "type": "STRING", "mode": "NULLABLE"}
+    ]
+  },
+  "products": {
+    "table_name": "products",
+    "columns": [
+      {"name": "id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "created_at", "type": "TIMESTAMP", "mode": "REQUIRED"},
+      {"name": "modified_at", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "deleted_at", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "name", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "sku", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "category", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "unit_price", "type": "FLOAT64", "mode": "REQUIRED"},
+      {"name": "is_active", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "weight_kg", "type": "INTEGER", "mode": "NULLABLE"},
+      {"name": "description", "type": "STRING", "mode": "NULLABLE"}
+    ]
+  },
+  "orders": {
+    "table_name": "orders",
+    "columns": [
+      {"name": "id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "created_at", "type": "TIMESTAMP", "mode": "REQUIRED"},
+      {"name": "modified_at", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "deleted_at", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "customer_id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "order_date", "type": "DATE", "mode": "REQUIRED"},
+      {"name": "status", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "total_amount", "type": "FLOAT64", "mode": "REQUIRED"},
+      {"name": "shipping_address", "type": "STRING", "mode": "NULLABLE"},
+      {"name": "tracking_number", "type": "STRING", "mode": "NULLABLE"}
+    ]
+  },
+  "order_items": {
+    "table_name": "order_items",
+    "columns": [
+      {"name": "id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "created_at", "type": "TIMESTAMP", "mode": "REQUIRED"},
+      {"name": "modified_at", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "deleted_at", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "order_id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "product_id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "quantity", "type": "INTEGER", "mode": "REQUIRED"},
+      {"name": "unit_price", "type": "FLOAT64", "mode": "REQUIRED"},
+      {"name": "discount_pct", "type": "FLOAT64", "mode": "NULLABLE"},
+      {"name": "subtotal", "type": "FLOAT64", "mode": "REQUIRED"}
+    ]
+  },
+  "inventory_snapshots": {
+    "table_name": "inventory_snapshots",
+    "columns": [
+      {"name": "id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "created_at", "type": "TIMESTAMP", "mode": "REQUIRED"},
+      {"name": "modified_at", "type": "TIMESTAMP", "mode": "NULLABLE"},
+      {"name": "product_id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "warehouse_id", "type": "STRING", "mode": "REQUIRED"},
+      {"name": "snapshot_date", "type": "DATE", "mode": "REQUIRED"},
+      {"name": "quantity_on_hand", "type": "INTEGER", "mode": "REQUIRED"},
+      {"name": "quantity_available", "type": "INTEGER", "mode": "NULLABLE"}
+    ]
+  }
+}
