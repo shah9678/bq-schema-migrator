@@ -4,7 +4,7 @@
 
 Build a migration tool that detects schema drift between SQLModel definitions and a BigQuery dataset, then generates safe DDL to reconcile them.
 
-You have **1 hour**. Use any AI coding tools available to you (Claude Code, Codex, Copilot, Cursor, etc.). Be prepared to talk through your code in the follow-up interview.
+This should take no longer than 1 hour. Use any AI coding tools available to you (Claude Code, Codex, Copilot, Cursor, etc.). Be prepared to talk through your code in the follow-up interview, and we may ask you to extend the code in a simple way.
 
 ## The Problem
 
