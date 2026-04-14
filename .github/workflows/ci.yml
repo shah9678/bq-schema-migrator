@@ -33,4 +33,4 @@ jobs:
         env:
           PYTHONPATH: .
         run: |
-          uv run python migrator.py
+          uv run pytest tests/migrate_test.py
