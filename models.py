@@ -10,26 +10,23 @@ from datetime import datetime, timezone
 from uuid import uuid4
 
 from sqlmodel import SQLModel, Field
-
-
 class BaseModel(SQLModel):
+    # Standard metadata for all tables --- A/S - 4/13/2026
     id: str = Field(default_factory=lambda: str(uuid4()), primary_key=True)
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     modified_at: Optional[datetime] = Field(default=None)
     deleted_at: Optional[datetime] = Field(default=None)
-
 
 class Customer(BaseModel, table=True):
     __tablename__ = "customers"
 
     name: str
     email: str
-    tier: str = Field(default="free")  # free, pro, enterprise
+    tier: str = Field(default="free")  
     is_active: bool = Field(default=True)
     company_name: Optional[str] = Field(default=None)
     annual_revenue: Optional[float] = Field(default=None)
     notes: Optional[str] = Field(default=None)
-
 
 class Product(BaseModel, table=True):
     __tablename__ = "products"
@@ -43,7 +40,6 @@ class Product(BaseModel, table=True):
     weight_kg: Optional[float] = Field(default=None)
     description: Optional[str] = Field(default=None)
 
-
 class Order(BaseModel, table=True):
     __tablename__ = "orders"
 
@@ -56,7 +52,6 @@ class Order(BaseModel, table=True):
     tracking_number: Optional[str] = Field(default=None)
     fulfilled_at: Optional[datetime] = Field(default=None)
 
-
 class OrderItem(BaseModel, table=True):
     __tablename__ = "order_items"
 
@@ -66,7 +61,6 @@ class OrderItem(BaseModel, table=True):
     unit_price: float
     discount_pct: Optional[float] = Field(default=None)
     line_total: float
-
 
 class InventorySnapshot(BaseModel, table=True):
     __tablename__ = "inventory_snapshots"
